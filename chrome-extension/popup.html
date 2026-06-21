@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Email Reply Generator</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 320px;
+      padding: 20px;
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: #f8f9fa;
+      color: #202124;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    h1 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #5f6368;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #3c4043;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 13px;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      border-color: #1a73e8;
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      min-width: 160px;
+      margin-top: 18px;
+      padding: 14px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+      background: linear-gradient(135deg, #1a73e8 0%, #1366d6 100%);
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(26, 115, 232, 0.18);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #165ecf 0%, #114bb3 100%);
+      box-shadow: 0 16px 32px rgba(26, 115, 232, 0.24);
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(1px);
+      box-shadow: 0 10px 20px rgba(26, 115, 232, 0.18);
+    }
+
+    .status {
+      margin-top: 12px;
+      padding: 8px 12px;
+      font-size: 12px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .status.success {
+      display: block;
+      background: #e6f4ea;
+      color: #137333;
+    }
+
+    .status.error {
+      display: block;
+      background: #fce8e6;
+      color: #c5221f;
+    }
+
+    .info {
+      margin-top: 16px;
+      padding: 12px;
+      font-size: 11px;
+      color: #5f6368;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e8eaed;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI Email Reply Generator</h1>
+  <p class="subtitle">Configure your backend connection</p>
+
+  <label for="backendUrl">Backend URL</label>
+  <input type="url" id="backendUrl" placeholder="http://localhost:8080">
+
+  <button id="saveBtn">Save Settings</button>
+  <div id="status" class="status"></div>
+
+  <div class="info">
+    Open Gmail, click Reply or Compose, then use the <strong>AI Reply</strong> button to generate responses.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

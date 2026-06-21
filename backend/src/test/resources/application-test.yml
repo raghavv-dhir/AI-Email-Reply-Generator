@@ -1,0 +1,15 @@
+groq:
+  api:
+    key: test-api-key
+    url: http://localhost:9999/v1/chat/completions
+    model: llama-3.3-70b-versatile
+
+app:
+  cors:
+    allowed-origin-patterns:
+      - chrome-extension://*
+      - http://localhost:*
+
+logging:
+  level:
+    com.emailgenerator: DEBUG

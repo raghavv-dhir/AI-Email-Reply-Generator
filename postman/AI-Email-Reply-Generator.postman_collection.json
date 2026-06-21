@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "AI Email Reply Generator",
+    "description": "Postman collection for AI Email Reply Generator API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/actuator/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["actuator", "health"]
+        },
+        "description": "Verify backend is running and healthy"
+      }
+    },
+    {
+      "name": "Generate Email Reply - Professional",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"emailContent\": \"Hi, can we schedule a meeting next Tuesday to discuss the project timeline?\",\n  \"subject\": \"Meeting Request\",\n  \"senderName\": \"Jane Doe\",\n  \"tone\": \"PROFESSIONAL\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/email/generate",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "email", "generate"]
+        },
+        "description": "Generate a professional tone email reply"
+      }
+    },
+    {
+      "name": "Generate Email Reply - Friendly",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"emailContent\": \"Thanks for sending over the documents! I'll review them tonight.\",\n  \"subject\": \"Documents Received\",\n  \"senderName\": \"Alex\",\n  \"tone\": \"FRIENDLY\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/email/generate",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "email", "generate"]
+        },
+        "description": "Generate a friendly tone email reply"
+      }
+    },
+    {
+      "name": "Generate Email Reply - Validation Error",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"subject\": \"Missing Content Test\",\n  \"tone\": \"PROFESSIONAL\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/email/generate",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "email", "generate"]
+        },
+        "description": "Test validation error when emailContent is missing"
+      }
+    }
+  ]
+}

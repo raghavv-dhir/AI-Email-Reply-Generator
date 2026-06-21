@@ -1,0 +1,211 @@
+.ai-reply-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.ai-reply-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 120px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  color: #ffffff;
+  background: linear-gradient(180deg, #1a73e8 0%, #1967d2 100%);
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 10px 24px rgba(26, 115, 232, 0.18);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  white-space: nowrap;
+}
+
+.ai-reply-btn:hover {
+  background: linear-gradient(180deg, #1558c7 0%, #0f4bc0 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(26, 115, 232, 0.2);
+}
+
+.ai-reply-btn:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.55);
+  outline-offset: 2px;
+}
+
+.ai-reply-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ai-reply-btn.loading::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border: 2px solid #1a73e8;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: ai-reply-spin 0.7s linear infinite;
+}
+
+@keyframes ai-reply-spin {
+  to { transform: rotate(360deg); }
+}
+
+.ai-reply-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid #dadce0;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  z-index: 10000;
+  overflow: hidden;
+  animation: ai-reply-fadeIn 0.15s ease;
+}
+
+.ai-reply-dropdown.open {
+  display: block;
+}
+
+@keyframes ai-reply-fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ai-reply-tone-item {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  text-align: left;
+  color: #3c4043;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.ai-reply-tone-item:hover {
+  background: #f1f3f4;
+}
+
+.ai-reply-actions {
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  border-top: 1px solid #e8eaed;
+}
+
+.ai-reply-action-btn {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  color: #5f6368;
+  background: #f1f3f4;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.ai-reply-action-btn:hover {
+  background: #e8eaed;
+}
+
+.ai-reply-notification {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  border-radius: 8px;
+  white-space: nowrap;
+  z-index: 10001;
+  animation: ai-reply-fadeIn 0.2s ease;
+}
+
+.ai-reply-notification-success {
+  background: #e6f4ea;
+  color: #137333;
+  border: 1px solid #ceead6;
+}
+
+.ai-reply-notification-error {
+  background: #fce8e6;
+  color: #c5221f;
+  border: 1px solid #f5c6c4;
+}
+
+/* Gmail Dark Theme */
+@media (prefers-color-scheme: dark) {
+  .ai-reply-btn {
+    color: #8ab4f8;
+    background: #394457;
+    border-color: #5f6368;
+  }
+
+  .ai-reply-btn:hover {
+    background: #4a5568;
+  }
+
+  .ai-reply-dropdown {
+    background: #292a2d;
+    border-color: #5f6368;
+  }
+
+  .ai-reply-tone-item {
+    color: #e8eaed;
+  }
+
+  .ai-reply-tone-item:hover {
+    background: #3c4043;
+  }
+
+  .ai-reply-actions {
+    border-top-color: #5f6368;
+  }
+
+  .ai-reply-action-btn {
+    color: #e8eaed;
+    background: #3c4043;
+  }
+
+  .ai-reply-action-btn:hover {
+    background: #5f6368;
+  }
+}
+
+/* Gmail explicit dark theme class */
+.aat .ai-reply-btn,
+[data-dark-theme="true"] .ai-reply-btn {
+  color: #8ab4f8;
+  background: #394457;
+  border-color: #5f6368;
+}
+
+.aat .ai-reply-dropdown,
+[data-dark-theme="true"] .ai-reply-dropdown {
+  background: #292a2d;
+  border-color: #5f6368;
+}
+
+.aat .ai-reply-tone-item,
+[data-dark-theme="true"] .ai-reply-tone-item {
+  color: #e8eaed;
+}
+
+.aat .ai-reply-tone-item:hover,
+[data-dark-theme="true"] .ai-reply-tone-item:hover {
+  background: #3c4043;
+}

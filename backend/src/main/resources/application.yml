@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  max-http-request-header-size: 16KB
+
+spring:
+  application:
+    name: ai-email-reply-generator
+  codec:
+    max-in-memory-size: 1MB
+
+groq:
+  api:
+    key: ${GROQ_API_KEY}
+    url: ${GROQ_API_URL:https://api.groq.com/openai/v1/chat/completions}
+    model: ${GROQ_MODEL:llama-3.3-70b-versatile}
+
+app:
+  cors:
+    allowed-origin-patterns:
+      - chrome-extension://*
+  request:
+    max-email-content-length: 50000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    root: INFO
+    com.emailgenerator: INFO
