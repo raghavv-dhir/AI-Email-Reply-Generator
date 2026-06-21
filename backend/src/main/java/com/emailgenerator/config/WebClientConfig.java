@@ -7,20 +7,10 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
 
 import java.time.Duration;
-
-/**
- * WebClient and HTTP client configuration.
- */
 @Configuration
 public class WebClientConfig {
 
     private static final Duration TIMEOUT = Duration.ofSeconds(60);
-
-    /**
-     * Creates a configured WebClient for outbound Gemini API calls.
-     *
-     * @return configured WebClient instance
-     */
     @Bean
     public WebClient webClient(WebClient.Builder builder) {
         HttpClient httpClient = HttpClient.create()

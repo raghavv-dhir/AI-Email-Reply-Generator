@@ -7,10 +7,6 @@ import com.emailgenerator.entity.EmailContext;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-/**
- * Orchestrates email reply generation using prompt building and Groq AI.
- */
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -18,13 +14,6 @@ public class EmailGeneratorService {
 
     private final GroqClient groqClient;
     private final PromptBuilderService promptBuilderService;
-
-    /**
-     * Generates an AI-powered email reply for the given request.
-     *
-     * @param request validated email generation request
-     * @return response containing the generated reply
-     */
     public EmailResponse generateReply(EmailRequest request) {
         log.info("Generating email reply with tone: {}", request.getTone());
 

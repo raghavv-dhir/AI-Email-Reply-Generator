@@ -7,10 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.Instant;
 import java.util.Map;
-
-/**
- * Standard error response returned by the global exception handler.
- */
 @Data
 @Builder
 @NoArgsConstructor

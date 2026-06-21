@@ -8,20 +8,12 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-
-/**
- * Validates required Groq configuration at startup and fails fast when missing.
- */
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class GroqConfigValidator {
 
     private final GroqProperties groqProperties;
-
-    /**
-     * Validates Groq API configuration when the application is ready.
-     */
     @EventListener(ApplicationReadyEvent.class)
     public void validateConfiguration() {
         if (!StringUtils.hasText(groqProperties.getKey())) {

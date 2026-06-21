@@ -1,8 +1,4 @@
 package com.emailgenerator.dto;
-
-/**
- * Supported reply tones for email generation.
- */
 public enum Tone {
     PROFESSIONAL,
     FRIENDLY,

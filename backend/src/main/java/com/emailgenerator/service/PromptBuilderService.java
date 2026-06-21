@@ -5,19 +5,8 @@ import com.emailgenerator.entity.EmailContext;
 import com.emailgenerator.util.PromptConstants;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-
-/**
- * Builds structured prompts for Gemini based on email context and tone.
- */
 @Component
 public class PromptBuilderService {
-
-    /**
-     * Constructs a prompt for email reply generation.
-     *
-     * @param context email context including content, subject, sender, and tone
-     * @return formatted prompt string
-     */
     public String buildPrompt(EmailContext context) {
         String toneDescription = describeTone(context.getTone());
         String subject = StringUtils.hasText(context.getSubject()) ? context.getSubject() : "Not provided";

@@ -13,10 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
-
-/**
- * Client for communicating with the Groq OpenAI-compatible chat completions API.
- */
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -25,13 +21,6 @@ public class GroqClient {
     private final WebClient webClient;
     private final GroqProperties groqProperties;
     private final ObjectMapper objectMapper;
-
-    /**
-     * Sends a prompt to Groq and returns the generated text response.
-     *
-     * @param prompt the fully constructed prompt
-     * @return generated reply text
-     */
     public String generateContent(String prompt) {
         ObjectNode requestBody = objectMapper.createObjectNode();
         requestBody.put("model", groqProperties.getModel());

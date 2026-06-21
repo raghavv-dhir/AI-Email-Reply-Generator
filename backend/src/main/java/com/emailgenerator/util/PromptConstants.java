@@ -1,8 +1,4 @@
 package com.emailgenerator.util;
-
-/**
- * Shared constants for prompt engineering.
- */
 public final class PromptConstants {
 
     public static final String SYSTEM_INSTRUCTION = """

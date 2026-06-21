@@ -1,10 +1,6 @@
 package com.emailgenerator.exception;
 
 import lombok.Getter;
-
-/**
- * Generic API exception with a safe client-facing message.
- */
 @Getter
 public class ApiException extends RuntimeException {
 

@@ -6,10 +6,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Application-level configuration properties.
- */
 @Getter
 @Setter
 @ConfigurationProperties(prefix = "app")

@@ -13,10 +13,6 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.time.Instant;
 import java.util.stream.Collectors;
-
-/**
- * Global exception handler that returns safe, structured error responses.
- */
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
